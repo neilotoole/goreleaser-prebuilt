@@ -1,0 +1,52 @@
+builds:
+  - builder: prebuilt
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm64
+      - 386
+    goamd64:
+      - v1
+    prebuilt:
+      path: /tmp/dist/foo_{{ .Os }}_{{ .Arch }}{{ with .Amd64 }}_{{ . }}{{ end }}/foo
+    binary: foo
+
+archives:
+  - replacements:
+      darwin: macOS
+      linux: Linux
+      windows: Windows
+      386: i386
+      amd64: x86_64
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+
+release:
+  discussion_category_name: General
+  prerelease: auto
+
+brews:
+  - tap:
+      owner: foo
+      name: bar
+    description: Foo Bar
+    homepage: https://example.org
+    license: "MIT"
+
+nfpms:
+  - maintainer: Foo bar
+    license: "MIT"
+    formats:
+      - deb
+      - rpm
+      - apk
+
