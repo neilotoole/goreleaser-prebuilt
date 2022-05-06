@@ -2,7 +2,7 @@ before:
   hooks:
     - go mod tidy
 
-dist: /tmp/dist
+dist: dist-linux
 
 builds:
 - main: .
@@ -20,3 +20,6 @@ builds:
     - -X main.commit={{.Commit}}
     - -X main.date={{.Date}}
     - -X main.builtBy=goreleaser
+
+archives:
+  - format: binary
