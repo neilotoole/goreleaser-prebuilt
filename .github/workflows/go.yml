@@ -96,6 +96,9 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: who dist?
+      run: tree ./dist-darwin
+
     - name: Set up Go
       uses: actions/setup-go@v3
       with:
