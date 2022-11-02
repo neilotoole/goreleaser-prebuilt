@@ -1,13 +1,13 @@
 builds:
   - builder: prebuilt
     goos:
-      - linux
-      - windows
+#      - linux
+#      - windows
       - darwin
     goarch:
       - amd64
       - arm64
-      - 386
+#      - 386
     goamd64:
       - v1
     prebuilt:
