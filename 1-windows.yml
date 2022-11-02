@@ -1,3 +1,4 @@
+project_name: foo
 before:
   hooks:
     - go mod tidy

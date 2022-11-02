@@ -70,7 +70,7 @@ jobs:
 
   #
   publish-artifacts:
-#    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v')
     needs: [build-artifacts-macos]
     runs-on: ubuntu-22.04
 
