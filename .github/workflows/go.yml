@@ -70,11 +70,18 @@ jobs:
 
   #
   publish-artifacts:
-    if: startsWith(github.ref, 'refs/tags/v')
     needs: [build-artifacts-macos]
     runs-on: ubuntu-22.04
 
+
+
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+
     - uses: actions/download-artifact@v3
       with:
         name: dist-darwin
@@ -91,13 +98,9 @@ jobs:
 #    - name: stat it
 #      run: stat dist-darwin/sqlitr2_darwin_arm64/sqlitr2
 
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
 
-    - name: who dist?
-      run: tree ./dist-darwin
+
+
 
     - name: Set up Go
       uses: actions/setup-go@v3
